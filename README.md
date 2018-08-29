@@ -1,45 +1,69 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+# Hello World PhoneGap Template [![bitHound Score][bithound-img]][bithound-url]
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+A PhoneGap Hello World template
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+## Usage
 
----
+#### PhoneGap CLI
 
-## Edit a file
+The hello-world template is the default when you create a new application using the [phonegap-cli][phonegap-cli-url].
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+    phonegap create my-app
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+Create an app using this template specifically:
 
----
+    phonegap create my-app --template hello-world
 
-## Create a file
+To see a list of other available PhoneGap templates:
 
-Next, you’ll add a new file to this repository.
+    phonegap template list
 
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
+## [config.xml][config-xml]
 
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
+#### android-minSdkVersion (Android only)
 
----
+Minimum SDK version supported on the target device. Maximum version is blank by default.
 
-## Clone a repository
+This template sets the minimum to `14`.
 
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
+    <preference name="android-minSdkVersion" value="14" />
 
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
+#### &lt;access ...&gt; (All)
 
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+This template defaults to wide open access.
+
+    <access origin="*" />
+
+It is strongly encouraged that you restrict access to external resources in your application before releasing to production.
+
+For more information on whitelist configuration, see the [Cordova Whitelist Guide][cordova-whitelist-guide] and the [Cordova Whitelist Plugin documentation][cordova-plugin-whitelist]
+
+## [www/index.html][index-html]
+
+#### Content Security Policy (CSP)
+
+The default CSP is similarly open:
+
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+
+Much like the access tag above, you are strongly encouraged to use a more restrictive CSP in production.
+
+A good starting point declaration might be:
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" />
+
+For more information on the Content Security Policy, see the [section on CSP in the Cordova Whitelist Plugin documentation][cordova-plugin-whitelist-csp].
+
+Another good resource for generating a good CSP declaration is [CSP is Awesome][csp-is-awesome]
+
+
+[phonegap-cli-url]: http://github.com/phonegap/phonegap-cli
+[cordova-app]: http://github.com/apache/cordova-app-hello-world
+[bithound-img]: https://www.bithound.io/github/phonegap/phonegap-app-hello-world/badges/score.svg
+[bithound-url]: https://www.bithound.io/github/phonegap/phonegap-app-hello-world
+[config-xml]: https://github.com/phonegap/phonegap-template-hello-world/blob/master/config.xml
+[index-html]: https://github.com/phonegap/phonegap-template-hello-world/blob/master/www/index.html
+[cordova-whitelist-guide]: https://cordova.apache.org/docs/en/dev/guide/appdev/whitelist/index.html
+[cordova-plugin-whitelist]: http://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist
+[cordova-plugin-whitelist-csp]: http://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist#content-security-policy
+[csp-is-awesome]: http://cspisawesome.com
