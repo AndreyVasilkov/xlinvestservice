@@ -1,0 +1,12 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="19" height="19" rx="1.5" transform="translate(18.75 21.875) scale(3.125)" stroke="#998E7A"/>
+<line y1="-0.5" x2="3" y2="-0.5" transform="translate(34.375 25) scale(3.125) rotate(-90)" stroke="#998E7A"/>
+<line y1="-0.5" x2="3" y2="-0.5" transform="translate(68.75 25) scale(3.125) rotate(-90)" stroke="#998E7A"/>
+<line y1="-0.5" x2="18" y2="-0.5" transform="translate(21.875 40.625) scale(3.125)" stroke="#998E7A"/>
+<circle cx="1" cy="1" r="0.5" transform="translate(31.25 50) scale(3.125)" fill="#FFD596" stroke="#998E7A"/>
+<circle cx="1" cy="1" r="0.5" transform="translate(46.875 50) scale(3.125)" fill="#FFD596" stroke="#998E7A"/>
+<circle cx="1" cy="1" r="0.5" transform="translate(62.5 50) scale(3.125)" fill="#FFD596" stroke="#998E7A"/>
+<circle cx="1" cy="1" r="0.5" transform="translate(31.25 65.625) scale(3.125)" fill="#FFD596" stroke="#998E7A"/>
+<circle cx="1" cy="1" r="0.5" transform="translate(46.875 65.625) scale(3.125)" fill="#FFD596" stroke="#998E7A"/>
+<circle cx="1" cy="1" r="0.5" transform="translate(62.5 65.625) scale(3.125)" fill="#FFD596" stroke="#998E7A"/>
+</svg>
