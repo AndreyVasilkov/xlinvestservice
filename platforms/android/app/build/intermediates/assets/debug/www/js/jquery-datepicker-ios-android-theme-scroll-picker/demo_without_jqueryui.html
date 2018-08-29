@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <title>DATETIME PICKER DEMO</title>
+  <script src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+  <script src="mobiscroll.js" type="text/javascript"></script>
+  <link href="mobiscroll.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <h1>IOS style</h1>
+  <div class="input-group">
+      <label for="date1">Date</label>
+      <input type="text" name="date1" id="date1" class="mobiscroll" />
+  </div>
+
+  <div class="input-group">
+      <label for="date2">Time</label>
+      <input type="text" name="date2" id="date2" class="mobiscroll" />
+  </div>
+
+  <div class="input-group">
+      <label for="date3">Datetime (With Chinese)</label>
+      <input type="text" name="date3" id="date3" class="mobiscroll" />
+  </div>
+
+  <h1>Android style</h1>
+  <div class="input-group">
+      <label for="date4">Date</label>
+      <input type="text" name="date4" id="date4" class="mobiscroll" />
+  </div>
+
+  <div class="input-group">
+      <label for="date5">Time</label>
+      <input type="text" name="date5" id="date5" class="mobiscroll" />
+  </div>
+
+  <div class="input-group">
+      <label for="date6">Datetime</label>
+      <input type="text" name="date6" id="date6" class="mobiscroll" />
+  </div>
+</body>
+
+<script type="text/javascript">
+
+  // IOS
+  $('#date1').scroller({ theme: 'ios' });
+  // Time
+  $('#date2').scroller({ theme: 'ios', preset: 'time' });
+  // Datetime
+  $('#date3').scroller({ theme: 'ios', lang: 'zh_CN', preset: 'datetime' });
+
+
+  // Android
+  $('#date4').scroller({ theme: 'android-ics light' });
+  // Time
+  $('#date5').scroller({ theme: 'android-ics', preset: 'time' });
+  // Datetime
+  $('#date6').scroller({ theme: 'android-ics', preset: 'datetime' });
+
+
+</script>
+</html>

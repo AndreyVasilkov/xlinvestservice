@@ -1,0 +1,7 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.5 0.5H15.5V16C15.5 16.8284 14.8284 17.5 14 17.5H2C1.17157 17.5 0.5 16.8284 0.5 16V0.5Z" transform="translate(8 8)" stroke="#FF6240"/>
+<path d="M0.5 0.5H9.5V2C9.5 2.82843 8.82843 3.5 8 3.5H2C1.17157 3.5 0.5 2.82843 0.5 2V0.5Z" transform="translate(21 9) rotate(180)" stroke="#FF6240"/>
+<line y1="-0.5" x2="20" y2="-0.5" transform="translate(6 9)" stroke="#FF6240"/>
+<line y1="-0.5" x2="8.8421" y2="-0.5" transform="translate(13 13) rotate(90)" stroke="#FF6240"/>
+<line y1="-0.5" x2="8.8421" y2="-0.5" transform="translate(18 13) rotate(90)" stroke="#FF6240"/>
+</svg>
