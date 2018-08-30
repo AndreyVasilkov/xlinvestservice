@@ -95,7 +95,7 @@ input[type=submit], input[type=button], button { -webkit-appearance: none; -moz-
 
 .on { color: #31C27C; }
 
-.blur { -webkit-filter: blur(3px); filter: blur(3px); }
+.blur { -webkit-filter: blur(2px); filter: blur(2px); }
 
 /*END HELP CLASSES*/
 :active, :hover, :focus { outline: 0 !important; outline-offset: 0 !important; }
@@ -183,7 +183,16 @@ input[type='text'].datePick:focus { text-indent: -999999999%; border: none; }
 	margin-top: 60%;
 	padding: 0 15px 0 15px;
 }
-
+.modal-overlay {
+  position: fixed;
+  background-color: #332E32;
+  opacity: 0.5;
+  z-index: -999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 /*MOdal delete*/
 .modal-wrapper-delete { padding: 15px 15px 0 15px; min-height: 190px; font-family: "RobotoLight", sans-serif; }
 
