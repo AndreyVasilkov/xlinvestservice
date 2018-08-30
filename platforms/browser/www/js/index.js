@@ -5,7 +5,7 @@ var time;
 function AddCompanyToSearch(companyName, primaryExchange, symbol) {
 	var ul = document.getElementById("result_search");
 	var li = document.createElement('li');
-	
+
 var cell = '<li class="panel-head search-res">'+
 '            <div class="wrapper">'+
 '                <div class="panel-head-inner">'+
@@ -17,11 +17,11 @@ var cell = '<li class="panel-head search-res">'+
 '                </div>'+
 '            </div>'+
 '        </li>';
-	
+
 
 
 	li.innerHTML = cell;
-                             
+
 	ul.appendChild(li);
 }
 
@@ -105,9 +105,9 @@ $(document).on('click', "#send_button2", function(e) {
 			document.getElementById("search_input").value = "";
 			document.getElementById("main_wrapper").className="main-wrapper";
 			}
-			}); 
+			});
 		}
-	}); 
+	});
 });
 
 
@@ -124,7 +124,7 @@ $('#time').on('keyup change', function(){
 	var len = document.getElementById("time").value.length;
 	if(len == 2 && oldLen < len) document.getElementById("time").value+=':';
 	else
-	if(len > 5) 
+	if(len > 5)
 	{
 		document.getElementById("time").value = document.getElementById("time").value.toString().substring(0,5);
 	}
@@ -144,11 +144,11 @@ $('#search_input').on('keyup change', function(){
 				for(var i in list)
 				{
 					list[i]['Points'] = 0;
-					
+
 					var input = document.getElementById('search_input').value.toLowerCase();
 					var symbol = list[i]['Symbol'].toLowerCase();
 					var companyName = list[i]['CompanyName'].toLowerCase();
-					
+
 					if (symbol ==  input) list[i]['Points'] += 10;
 					if (companyName == input) list[i]['Points'] += 9;
 					if (symbol.startsWith(input)) list[i]['Points'] += 8;
@@ -157,19 +157,19 @@ $('#search_input').on('keyup change', function(){
 					if (companyName.includes(input)) list[i]['Points'] += 5;
 				}
 				list.sort(function(x, y){return y.Points - x.Points});
-			
+
 				if (list[0]['Points'] == 0)
 				{
 					document.getElementById("result_search").innerHTML='<div class="no"><span class="no-text">Ничего не найдено</span></div>';
 				}
 				else
 				{
-					for (var i = 0; i < 10; i++) { 
+					for (var i = 0; i < 10; i++) {
 						AddCompanyToSearch(list[i]['CompanyName'],list[i]['PrimaryExchange'],list[i]['Symbol'])
 					}
 				}
 			}
-		}); 
+		});
 	}
 	else document.getElementById("result_search").innerHTML='<div class="no"><span class="no-text">Ничего не найдено</span></div>';
 })
