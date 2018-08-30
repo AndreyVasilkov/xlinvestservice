@@ -102,6 +102,7 @@ $(document).on('click', "#send_button2", function(e) {
 			success: function(msg2) {
 			console.log('good send');
 			ClearList();
+			document.getElementById("search_input").value = "";
 			document.getElementById("main_wrapper").className="main-wrapper";
 			}
 			}); 
