@@ -2,11 +2,6 @@
 * Login2030 is author this css file
 */
 /* body {background-color: #ffffff;} */
-input[type="search"] {
-    caret-color: #ffffff !important;
-    color: #fff !important;
-}
-
 .header-float {
     position: fixed;
     top: 0;
@@ -22,3 +17,7 @@ input[type="search"] {
 .header-float-shadow {
     height: 89px;
 }
+
+/* .ccc input {
+    background-color: red;
+} */
