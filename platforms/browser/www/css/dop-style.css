@@ -2,3 +2,8 @@
 * Login2030 is author this css file
 */
 /* body {background-color: #dddddd;} */
+
+.search-form label.search-field,
+input[type="search"] {
+    caret-color: #ffffff
+}

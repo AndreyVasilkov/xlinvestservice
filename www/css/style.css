@@ -882,5 +882,3 @@ th.day.trig { color: #fff; }
 
 @media screen and (orientation: portrait) and (max-device-width: 700px) { .main-wrapper { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; }
   .contable { display: none; } }
-
-/*# sourceMappingURL=style.css.map */
