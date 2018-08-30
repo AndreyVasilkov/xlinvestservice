@@ -111,7 +111,7 @@ input[type='text'].datePick:focus { text-indent: -999999999%; border: none; }
 /* loader */
 .loaded .main-wrapper { visibility: hidden; }
 
-.icon-load { display: none; width: 100px; height: 100px; position: fixed; left: 50%; top: 45%; -webkit-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
+.icon-load { display: flex; width: 100px; height: 100px; position: fixed; left: 50%; top: 45%; -webkit-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
 
 .loaded .icon-load { display: block; }
 
@@ -347,7 +347,7 @@ nav { height: 40px; display: -webkit-box; display: -webkit-flex; display: -ms-fl
 
 .last-tab { width: 33.33%; text-align: center; }
 
-.main-wrapper { padding: 0 0 0 0; min-width: 320px; width: 100%; max-width: 700px; margin: 0 auto; position: relative; overflow: hidden; min-height: 100%; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: start; -webkit-justify-content: flex-start; -ms-flex-pack: start; justify-content: flex-start; background-color: #332e32; }
+.main-wrapper { padding: 0 0 0 0; min-width: 320px; width: 100%; max-width: 700px; margin: 0 auto; position: relative; overflow: hidden; min-height: 100%; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: start; -webkit-justify-content: flex-start; -ms-flex-pack: start; justify-content: flex-start; background-color: #332e32; visibility: hidden;}
 
 .wrapper { min-width: 320px; padding: 0 16px 0 16px; width: 100%; margin: 0 auto; position: relative; }
 .wrapper2 { min-width: 320px; padding: 0 16px 0 16px; width: 100%; margin: 0 auto; position: relative; border-left: 2px solid #67787E; border-right: 2px solid #67787E;}

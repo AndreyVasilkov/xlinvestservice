@@ -30,6 +30,13 @@ function ClearList()
 	document.getElementById("result_search").innerHTML="";
 }
 
+$( document ).ready(function() {
+	sleep(3000);
+    document.getElementsByClassName("icon-load")[0].style.display = 'none';
+	document.getElementById("main_wrapper").style.visibility = "visible";
+});
+
+
 $(document).on('click', "div.wrapper", function(e) {
     document.getElementById("main_wrapper").className="main-wrapper blur";
     document.getElementById("modalContent2").style.visibility = "visible";
@@ -41,10 +48,10 @@ $(document).on('click', "div.wrapper", function(e) {
 	document.getElementById("time").value = localStorage.getItem('time');
 });
 
-$(document).on('change', "#count", function(e) {
-	if(document.getElementById("count").value < 0) document.getElementById("count").value = 0;
+$('#count').on('keyup change', function(){
+    if(document.getElementById("count").value < 0) document.getElementById("count").value = 0;
 	if(document.getElementById("count").value > 99) document.getElementById("count").value = 99;
-});
+})
 
 $(document).on('click', "#back_button", function(e) {
     document.getElementById("modalContent2").style.visibility = "hidden";
@@ -94,11 +101,15 @@ $(document).on('click', "#send_button2", function(e) {
 		}),
 			success: function(msg2) {
 			console.log('good send');
+			ClearList();
+			document.getElementById("search_input").value = "";
+			document.getElementById("main_wrapper").className="main-wrapper";
 			}
 			});
 		}
 	});
 });
+
 
 $(document).on('click', "#back_button2", function(e) {
     document.getElementById("modalContent3").style.visibility = "hidden";
@@ -106,6 +117,19 @@ $(document).on('click', "#back_button2", function(e) {
 	document.getElementById("send_button2").className="modalButton back";
 
 });
+
+
+var oldLen = 0;
+$('#time').on('keyup change', function(){
+	var len = document.getElementById("time").value.length;
+	if(len == 2 && oldLen < len) document.getElementById("time").value+=':';
+	else
+	if(len > 5)
+	{
+		document.getElementById("time").value = document.getElementById("time").value.toString().substring(0,5);
+	}
+	oldLen = len;
+})
 
 $('#search_input').on('keyup change', function(){
       ClearList();
@@ -148,4 +172,13 @@ $('#search_input').on('keyup change', function(){
 		});
 	}
 	else document.getElementById("result_search").innerHTML='<div class="no"><span class="no-text">Ничего не найдено</span></div>';
-});
+})
+
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
