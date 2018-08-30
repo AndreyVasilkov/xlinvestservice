@@ -166,7 +166,7 @@ input[type='text'].datePick:focus { text-indent: -999999999%; border: none; }
 
 .container-modal { margin: 25vh 16px; width: -webkit-calc(100vw - 32px); width: calc(100vw - 32px); height: auto; background-color: #3B3539; border: 1px solid #67787E; position: relative; -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8); }
 
-.modalContent { 
+.modalContent {
 	visibility: hidden;
     width: 100%;
     position: fixed;
@@ -175,7 +175,7 @@ input[type='text'].datePick:focus { text-indent: -999999999%; border: none; }
 	padding: 0 15px 0 15px;
 }
 
-.modalContent2 { 
+.modalContent2 {
 	visibility: hidden;
     width: 100%;
     position: fixed;
