@@ -1,9 +1,24 @@
 /**
 * Login2030 is author this css file
 */
-/* body {background-color: #dddddd;} */
-
-.search-form label.search-field,
+/* body {background-color: #ffffff;} */
 input[type="search"] {
-    caret-color: #ffffff
+    caret-color: #ffffff !important;
+    color: #fff !important;
+}
+
+.header-float {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+.header-float header {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.header-float-shadow {
+    height: 89px;
 }
