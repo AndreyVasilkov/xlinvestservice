@@ -98,11 +98,11 @@ input[type=submit], input[type=button], button { outline: none; }
 .blur { -webkit-filter: blur(2px); filter: blur(2px); }
 
 /*END HELP CLASSES*/
-:active, :hover, :focus { outline: 0 !important; outline-offset: 0 !important; }
+/* :active, :hover, :focus { outline: 0 !important; outline-offset: 0 !important; } */
 
-input { outline: 0 !important; }
+/* input { outline: 0 !important; } */
 
-input[type="submit"]:active, input[type="button"]:active, input[type="submit"]:hover, input[type="button"]:hover, input[type="submit"]:focus, input[type="button"]:focus { background: #6CDCFF; outline: 0 !important; outline-offset: 0 !important; }
+/* input[type="submit"]:active, input[type="button"]:active, input[type="submit"]:hover, input[type="button"]:hover, input[type="submit"]:focus, input[type="button"]:focus { background: #6CDCFF; outline: 0 !important; outline-offset: 0 !important; } */
 
 input[type='text'].datePick { border: none; }
 

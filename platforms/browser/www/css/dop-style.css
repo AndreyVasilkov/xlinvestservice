@@ -1,7 +1,7 @@
 /**
 * Login2030 is author this css file
 */
-/* body {background-color: #ffffff;} */
+/* body {background-color: red;} */
 .header-float {
     position: fixed;
     top: 0;
@@ -18,6 +18,6 @@
     height: 89px;
 }
 
-/* .ccc input {
-    background-color: red;
-} */
+.button-no {
+    color: #6CDCFF;
+}

@@ -25,7 +25,7 @@
         </div>
         <form>
             <div class="modal-footer">
-                <input type="button" class="modalButton back" value="Нет" id="back_button2">
+                <input type="button" class="modalButton back button-no" value="Нет" id="back_button2">
                 <input type="submit" class="modalButton back" value="Да" id="send_button2">
             </div>
         </form>
@@ -36,14 +36,14 @@
     <div class="modal-overlay"></div>
     <div class="modal-wrapper-forward">
         <h2 class="modal-title">Открытие форвардного контракта</h2>
-		<div class="wrapper2">
+        <div class="wrapper2">
             <div class="panel-head-inner">
-				<h2 class="abbr-title" id="symbol">MSFT</h2>
+                <h2 class="abbr-title" id="symbol">MSFT</h2>
                 <div class="flex-column full-info">
-					<h3 class="title-label" id="company">Microsoft</h3>
+                    <h3 class="title-label" id="company">Microsoft</h3>
                     <div class="bottom-word-line"><span class="title-index" id="exchange">NASDAQ</span></div>
                 </div>
-			</div>
+            </div>
          </div>
         <div class="half-field">
             <div class="wrapper-field">
@@ -60,7 +60,7 @@
         </div>
         <form>
             <div class="modal-footer">
-                <input type="button" class="modalButton back" value="Отменить" id="back_button">
+                <input type="button" class="modalButton back button-no" value="Отменить" id="back_button">
                 <input type="submit" class="modalButton back" value="Отправить" id="send_button">
             </div>
         </form>
@@ -75,23 +75,13 @@
                     <h1 class="main-title">XL Invest Service</h1>
                 </div>
             </div>
-            <!-- Исходная форма поиска
                 <div class="stop-panel">
                 <form class="search-form" id="sendform">
                     <label class="search-field">
                         <input type="search" id="search_input" value="" name="s" autofocus>
                     </label>
                 </form>
-            </div> -->
-            <!-- Тест для исправления бага -->
-            <div class="stop-panel ccc">
-                <form class="search-form" id="sendform">
-                    <label class="search-field">
-                        <input type="search" id="search_input" value="" name="s" autofocus>
-                    </label>
-                </form>
             </div>
-            <!-- / Тест для исправления бага -->
         </header>
     </div>
     <div class="header-float-shadow"></div>
@@ -99,7 +89,13 @@
     <!-- BEGIN CONTENT -->
     <main class="content">
         <ul id="result_search" class="result-search">
-		<div class="no"><span class="no-text">Введите тикер или название компании</span></div>
+            <li>
+                <div class="no">
+                    <span class="no-text">
+                        Введите тикер или название компании
+                    </span>
+                </div>
+            </li>
         </ul>
     </main>
     <!-- CONTENT EOF   -->
