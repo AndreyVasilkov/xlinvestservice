@@ -21,3 +21,9 @@
 .button-no {
     color: #6CDCFF;
 }
+
+.input-icon-clock {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
