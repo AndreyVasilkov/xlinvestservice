@@ -25,6 +25,7 @@ $(window).on('load', function () {
         $('.back').on('touchstart',function(e){
             $('.back').removeClass('activeBtn');
             $(this).addClass('activeBtn');
+            setTimeout($.proxy(function(){$(this).removeClass('activeBtn');}, this), 10);
             e.stopPropagation();
 
         });
@@ -91,41 +92,45 @@ $(window).on('load', function () {
         $(this).addClass('active');
         e.stopPropagation();
     });
+	/*
     $('input[type="search"]').on('focus',function(){
         $(this).parents('label').css({color: '#FFD596'});
     });
     $('input[type="search"]').on('blur',function(){
         $(this).parents('label').css({color: '#998E7A'});
     });
+	*/
 	var nav_wrap = $(".slide-tab-panel");
-	var elem_left_offset,
-	elem_parent,
-	slider_line;
-    if($('.main-page').length){
-        nav_wrap_pos = nav_wrap.position().left;
-    }
+        if (nav_wrap.length) {
+            var elem_left_offset,
+            elem_parent,
+            slider_line;
+            if($('.main-page').length){
+                nav_wrap_pos = nav_wrap.position().left;
+            }
 
-	nav_wrap.each(function(){
+            nav_wrap.each(function(){
 
-		$(this).append('<li class="sliding-line"></li>');
+                    $(this).append('<li class="sliding-line"></li>');
 
-		var active_elem = $(this).find(".active");
-		var result = nav_wrap_pos/active_elem;
+                    var active_elem = $(this).find(".active");
+                    var result = nav_wrap_pos/active_elem;
 
-		if(active_elem.length){
-				var start_elem_width = active_elem.outerWidth();
-				var start_elem_offset = active_elem.position().left;
-		}
+                    if(active_elem.length){
+                                    var start_elem_width = active_elem.outerWidth();
+                                    var start_elem_offset = active_elem.position().left;
+                    }
 
-		$(this).find(".sliding-line").css({
-				"width": start_elem_width + "px",
-				"left": start_elem_offset + "px",
-				"list-style-type": "none"
-		})
-				.data("width", start_elem_width)
-				.data("left", start_elem_offset);
+                    $(this).find(".sliding-line").css({
+                                    "width": start_elem_width + "px",
+                                    "left": start_elem_offset + "px",
+                                    "list-style-type": "none"
+                    })
+                                    .data("width", start_elem_width)
+                                    .data("left", start_elem_offset);
 
-});
+            });
+        }
 	/*MENU*/
 	$('.add').on("click",function(e){
 		e.preventDefault();
@@ -230,10 +235,10 @@ $(window).on('load', function () {
 
       //Modal Close
     $('input[type="text"],input[type="password"],input[type="email"],input[type="search"]').on('focus',function(){
-        $(this).siblings('label,span').css({color: '#FFD596'});
+        $(this).closest(".wrapper-field").addClass("focus");
     });
     $('input[type="text"],input[type="password"],input[type="email"],input[type="search"]').on('blur',function(){
-        $(this).siblings('label,span').css({color: '#998E7A'});
+        $(this).closest(".wrapper-field").removeClass("focus");
     });
     $( ".dragging" ).sortable({
         axis: "y",
@@ -257,12 +262,6 @@ $(window).on('load', function () {
 
 
 
-    $('input[type="text"],input[type="password"],input[type="email"],input[type="search"]').on('focus',function(){
-        $(this).siblings('label,span').css({color: '#FFD596'});
-    });
-    $('input[type="text"],input[type="password"],input[type="email"],input[type="search"]').on('blur',function(){
-        $(this).siblings('label,span').css({color: '#998E7A'});
-    });
     $( ".dragging" ).sortable({
         axis: "y",
         containment: "parent",
@@ -324,74 +323,76 @@ $(window).on('load', function () {
 	 });
  function addButton(){
 
-		 var node = document.querySelector("#swipe-tabs-cont");
-		 var longpress = false;
-		 var presstimer = null;
-		 var longtarget = null;
+    var node = document.querySelector("#swipe-tabs-cont");
+    if (node) {
+       var longpress = false;
+       var presstimer = null;
+       var longtarget = null;
 
-		 var cancel = function(e) {
-				 if (presstimer !== null) {
-						 clearTimeout(presstimer);
-						 presstimer = null;
-				 }
-		 };
+       var cancel = function(e) {
+                       if (presstimer !== null) {
+                                       clearTimeout(presstimer);
+                                       presstimer = null;
+                       }
+       };
 
-		 var cancelses = function(e){
-				 if (presstimer !== null) {
-						 clearTimeout(presstimer);
-						 presstimer = null;
-				 }
-				 $('.block-content-panel').removeClass('longpress');
-				 $('.stop').find('.btn-target').animate({'marginRight': "-500px"},0);
-				 $('.stop').find('.data-num').animate({'marginRight': "0px"},0);
-				 $('.stop').find('.value-percent').animate({'marginRight': "0px"},0);
-		 };
-		 var click = function(e) {
-				 if (presstimer !== null) {
-						 clearTimeout(presstimer);
-						 presstimer = null;
-				 }
-				 $('.block-content-panel').removeClass('longpress');
-				 $('.stop').find('.btn-target').animate({'marginRight': "-500px"},0);
-				 $('.stop').find('.data-num').animate({'marginRight': "0px"},0);
-				 $('.stop').find('.value-percent').animate({'marginRight': "0px"},0);
+       var cancelses = function(e){
+                       if (presstimer !== null) {
+                                       clearTimeout(presstimer);
+                                       presstimer = null;
+                       }
+                       $('.block-content-panel').removeClass('longpress');
+                       $('.stop').find('.btn-target').animate({'marginRight': "-500px"},0);
+                       $('.stop').find('.data-num').animate({'marginRight': "0px"},0);
+                       $('.stop').find('.value-percent').animate({'marginRight': "0px"},0);
+       };
+       var click = function(e) {
+                       if (presstimer !== null) {
+                                       clearTimeout(presstimer);
+                                       presstimer = null;
+                       }
+                       $('.block-content-panel').removeClass('longpress');
+                       $('.stop').find('.btn-target').animate({'marginRight': "-500px"},0);
+                       $('.stop').find('.data-num').animate({'marginRight': "0px"},0);
+                       $('.stop').find('.value-percent').animate({'marginRight': "0px"},0);
 
-				 if (longpress) {
-						 return false;
-				 }
-		 };
+                       if (longpress) {
+                                       return false;
+                       }
+       };
 
-		 var start = function(e) {
+       var start = function(e) {
 
-				 var $this = this;
+                       var $this = this;
 
-				 if (e.type === "click" && e.button !== 0) {
-						 return false;
-				 }
+                       if (e.type === "click" && e.button !== 0) {
+                                       return false;
+                       }
 
-				 longpress = false;
+                       longpress = false;
 
 
-				 if (presstimer === null) {
-						 presstimer = setTimeout(function() {
-								 longpress = true;
-								 $('.block-content-panel').addClass('longpress');
-								 $('.stop').find('.btn-target').animate({'marginRight': "0px"},0);
-								 $('.stop').find('.data-num').animate({'marginRight': "-500px"},0);
-								 $('.stop').find('.value-percent').animate({'marginRight': "-500px"},0);
-						 }, 2000);
-				 }
+                       if (presstimer === null) {
+                                       presstimer = setTimeout(function() {
+                                                       longpress = true;
+                                                       $('.block-content-panel').addClass('longpress');
+                                                       $('.stop').find('.btn-target').animate({'marginRight': "0px"},0);
+                                                       $('.stop').find('.data-num').animate({'marginRight': "-500px"},0);
+                                                       $('.stop').find('.value-percent').animate({'marginRight': "-500px"},0);
+                                       }, 2000);
+                       }
 
-				 return false;
-		 };
+                       return false;
+       };
 
-		 node.addEventListener("mousedown", start);
-		 node.addEventListener("touchstart", start);
-		 node.addEventListener("click", click);
-		 node.addEventListener("mouseout", cancel);
-		 node.addEventListener("touchend", cancelses);
-		 node.addEventListener("touchleave", cancel);
-		 node.addEventListener("touchcancel", cancel);
+       node.addEventListener("mousedown", start);
+       node.addEventListener("touchstart", start);
+       node.addEventListener("click", click);
+       node.addEventListener("mouseout", cancel);
+       node.addEventListener("touchend", cancelses);
+       node.addEventListener("touchleave", cancel);
+       node.addEventListener("touchcancel", cancel);
+   }
 
 
  }

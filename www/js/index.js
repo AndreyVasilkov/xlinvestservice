@@ -2,6 +2,56 @@ var symbol;
 var count = 0;
 var time;
 
+$.fn.extend({
+    
+    svg: function(){
+            
+        return this.each(function(){
+            var $img = jQuery(this);
+            var imgID = $img.attr('id');
+            var imgClass = $img.attr('class');
+            var imgURL = $img.attr('src');
+
+            jQuery.get(imgURL, function(data) {
+                // Get the SVG tag, ignore the rest
+                var $svg = jQuery(data).find('svg');
+
+                // Add replaced image's ID to the new SVG
+                if(typeof imgID !== 'undefined') {
+                    $svg = $svg.attr('id', imgID);
+                }
+                // Add replaced image's classes to the new SVG
+                if(typeof imgClass !== 'undefined') {
+                    $svg = $svg.attr('class', imgClass+' replaced-svg');
+                }
+
+                // Remove any invalid XML tags as per http://validator.w3.org
+                $svg = $svg.removeAttr('xmlns:a');
+
+                // Replace image with new SVG
+                $img.replaceWith($svg);
+            });
+        })
+
+    },
+    
+    render: function(){      
+            
+        return this.each(function(){
+
+            $("img.svg", this).svg();
+            
+
+        });
+    },
+})
+
+
+$(function(){
+    $("body").render();
+})
+
+
 function AddCompanyToSearch(companyName, primaryExchange, symbol) {
 	var ul = document.getElementById("result_search");
 	var li = document.createElement('li');
@@ -31,9 +81,10 @@ function ClearList()
 }
 
 $( document ).ready(function() {
-	sleep(3000);
-    document.getElementsByClassName("icon-load")[0].style.display = 'none';
-	document.getElementById("main_wrapper").style.visibility = "visible";
+	setTimeout(function(){
+		document.getElementsByClassName("icon-load")[0].style.display = 'none';
+		document.getElementById("main_wrapper").style.visibility = "visible";
+	}, 3000)
 });
 
 
@@ -48,21 +99,13 @@ $(document).on('click', "div.wrapper", function(e) {
 	document.getElementById("time").value = localStorage.getItem('time');
 });
 
-$('#count').on('keyup change', function(){
-    if(document.getElementById("count").value < 0) document.getElementById("count").value = 0;
-	if(document.getElementById("count").value > 99) document.getElementById("count").value = 99;
-})
 
 $(document).on('click', "#back_button", function(e) {
     document.getElementById("modalContent2").style.visibility = "hidden";
-	document.getElementById("back_button").className="modalButton back";
-	document.getElementById("send_button").className="modalButton back";
 });
 
 $(document).on('click', "#send_button", function(e) {
     document.getElementById("modalContent2").style.visibility = "hidden";
-	document.getElementById("back_button").className="modalButton back";
-	document.getElementById("send_button").className="modalButton back";
 	count = document.getElementById("count").value;
 	var timeStr = document.getElementById("time").value;
 	time = new Date();
@@ -73,14 +116,11 @@ $(document).on('click', "#send_button", function(e) {
 	localStorage.setItem('time', timeStr);
 	document.getElementById("modalContent3").style.visibility = "visible";
 	document.getElementById("main_wrapper").className="main-wrapper blur";
+	return false;
 });
 
 $(document).on('click', "#send_button2", function(e) {
     document.getElementById("modalContent3").style.visibility = "hidden";
-	document.getElementById("back_button2").className="modalButton back";
-	document.getElementById("send_button2").className="modalButton back";
-	console.log(count);
-	console.log(time);
 	$.ajax({
 	url: 'http://server.xlinvest.net/add_forward_service.php',
 	method: 'POST', // or GET
@@ -100,36 +140,64 @@ $(document).on('click', "#send_button2", function(e) {
 		symbol:document.getElementById("symbol").innerHTML,
 		}),
 			success: function(msg2) {
-			console.log('good send');
-			ClearList();
 			document.getElementById("search_input").value = "";
 			document.getElementById("main_wrapper").className="main-wrapper";
 			}
 			});
 		}
 	});
+	ClearList();
+	return false;
 });
 
 
 $(document).on('click', "#back_button2", function(e) {
     document.getElementById("modalContent3").style.visibility = "hidden";
-	document.getElementById("back_button2").className="modalButton back";
-	document.getElementById("send_button2").className="modalButton back";
 
 });
 
 
-var oldLen = 0;
-$('#time').on('keyup change', function(){
-	var len = document.getElementById("time").value.length;
-	if(len == 2 && oldLen < len) document.getElementById("time").value+=':';
-	else
-	if(len > 5)
-	{
-		document.getElementById("time").value = document.getElementById("time").value.toString().substring(0,5);
-	}
-	oldLen = len;
+$("#count").on("keyup", function(events){
+   
+    // Allow: backspace, delete, tab, escape, and enter
+    if ( events.keyCode == 46 || events.keyCode == 8 || events.keyCode == 9 || events.keyCode == 27 || events.keyCode == 13 || 
+    // allow decimals
+    events.keyCode == 190 || events.keyCode == 110 || 
+    // Allow: Ctrl+A
+    (events.keyCode == 65 && events.ctrlKey === true) || 
+    // Allow: home, end, left, right
+    (events.keyCode >= 35 && events.keyCode <= 39)) {
+    // let it happen, don't do anything
+        return;
+    } else {
+        // Ensure that it is a number and stop the keypress
+        if (events.shiftKey || (events.keyCode < 48 || events.keyCode > 57) && (events.keyCode < 96 || events.keyCode > 105 )) {
+            events.preventDefault(); 
+        }
+        else {
+            
+            if (String($(this).val()).length == 2) {
+                $(this).val($(this).val() + ',');
+            }
+            
+            if (String($(this).val()).length == 5) {
+                events.preventDefault(); 
+            }
+        }
+    }
+    
 })
+
+
+$('#time').on('click', function(e){
+   
+
+})
+
+
+$('#search_input').on('search', function () {
+	ClearList();
+});
 
 $('#search_input').on('keyup change', function(){
       ClearList();
@@ -174,11 +242,3 @@ $('#search_input').on('keyup change', function(){
 	else document.getElementById("result_search").innerHTML='<div class="no"><span class="no-text">Ничего не найдено</span></div>';
 })
 
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
-      break;
-    }
-  }
-}

@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <style>
+        html, body {
+            background:#3B3539;
+        }
+    </style>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, user-scalable=none, initial-scale=1, maximum-scale=1">
@@ -54,9 +59,9 @@
             <div class="wrapper-field">
                 <label for="time">Начало торговой сессии</label>
                 <span class="input-icon">
-                    <img class="input-icon-clock" src="img/icons//ClockTime.svg" alt="">
+                    <img class="input-icon-clock svg" src="img/icons/ClockTime.svg" alt="">
                 </span>
-                <input type="text" id="time" placeholder="Ввести" class="input-discount" pattern="([1]?[0-9]|2[0-3]):[0-5][0-9]">
+                <input type="text" id="time" placeholder="ЧЧ:ММ" pclass="input-discount">
             </div>
 
         </div>
@@ -80,7 +85,7 @@
                 <div class="stop-panel">
                 <form class="search-form" id="sendform">
                     <label class="search-field">
-                        <input type="search" id="search_input" value="" name="s" autofocus>
+                        <input type="search" id="search_input" value="" name="s" autofocus placeholder="Введите название компании или тикер">
                     </label>
                 </form>
             </div>
@@ -94,7 +99,6 @@
             <li>
                 <div class="no">
                     <span class="no-text">
-                        Введите тикер или название компании
                     </span>
                 </div>
             </li>
@@ -124,6 +128,8 @@
 
 <!-- BODY EOF   -->
 
+<script src="cordova.js"></script>
+
 <script src="js/jquery-3.0.0.min.js"></script>
 <script src="js/jquery-migrate-1.4.1.min.js" ></script>
 <script src="js/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
@@ -134,6 +140,7 @@
 <script src="js/components/jquery.mCustomScrollbar.js" ></script>
 
 -->
+
 <script src="js/components/slick.js"></script>
 
 <script src="js/custom.js" ></script>
